@@ -1,0 +1,60 @@
+<svg width="620" height="520" xmlns="http://www.w3.org/2000/svg" font-family="Arial, sans-serif">
+
+  <!-- Background -->
+  <rect width="620" height="520" fill="#1a1a2e" rx="12"/>
+
+  <!-- Title -->
+  <text x="310" y="40" text-anchor="middle" fill="#ffffff" font-size="16" font-weight="bold">Pipeline de Análise de Filmes - Arquitetura</text>
+
+  <!-- Step 1: CSV -->
+  <rect x="185" y="65" width="250" height="50" rx="8" fill="#2d2d5e" stroke="#6c63ff" stroke-width="1.5"/>
+  <text x="310" y="85" text-anchor="middle" fill="#a0a0ff" font-size="11" font-weight="bold">FONTE DE DADOS</text>
+  <text x="310" y="103" text-anchor="middle" fill="#ffffff" font-size="12">Dataset CSV (local)</text>
+
+  <!-- Arrow 1 -->
+  <line x1="310" y1="115" x2="310" y2="143" stroke="#6c63ff" stroke-width="1.5"/>
+  <polygon points="304,141 310,153 316,141" fill="#6c63ff"/>
+
+  <!-- Step 2: GCS Bronze -->
+  <rect x="150" y="153" width="320" height="60" rx="8" fill="#3d2000" stroke="#cd7f32" stroke-width="1.5"/>
+  <text x="310" y="175" text-anchor="middle" fill="#cd7f32" font-size="11" font-weight="bold">CAMADA BRONZE</text>
+  <text x="310" y="193" text-anchor="middle" fill="#ffffff" font-size="11">Google Cloud Storage</text>
+  <text x="310" y="207" text-anchor="middle" fill="#aaaaaa" font-size="10">bucket: bronze-desafio - dado bruto, sem transformação</text>
+
+  <!-- Arrow 2 -->
+  <line x1="310" y1="213" x2="310" y2="241" stroke="#6c63ff" stroke-width="1.5"/>
+  <polygon points="304,239 310,251 316,239" fill="#6c63ff"/>
+
+  <!-- Step 3: BigQuery Raw Silver -->
+  <rect x="150" y="251" width="320" height="60" rx="8" fill="#1a2e1a" stroke="#c0c0c0" stroke-width="1.5"/>
+  <text x="310" y="273" text-anchor="middle" fill="#c0c0c0" font-size="11" font-weight="bold">CAMADA SILVER</text>
+  <text x="310" y="291" text-anchor="middle" fill="#ffffff" font-size="11">BigQuery - dataset: raw</text>
+  <text x="310" y="305" text-anchor="middle" fill="#aaaaaa" font-size="10">External Tables - todas as colunas como STRING</text>
+
+  <!-- Arrow 3 -->
+  <line x1="310" y1="311" x2="310" y2="339" stroke="#6c63ff" stroke-width="1.5"/>
+  <polygon points="304,337 310,349 316,337" fill="#6c63ff"/>
+
+  <!-- Step 4: BigQuery Analytics Gold -->
+  <rect x="150" y="349" width="320" height="60" rx="8" fill="#2e2a00" stroke="#ffd700" stroke-width="1.5"/>
+  <text x="310" y="371" text-anchor="middle" fill="#ffd700" font-size="11" font-weight="bold">CAMADA GOLD</text>
+  <text x="310" y="389" text-anchor="middle" fill="#ffffff" font-size="11">BigQuery - dataset: analytics</text>
+  <text x="310" y="403" text-anchor="middle" fill="#aaaaaa" font-size="10">dim_movies, fact_ratings, views analíticas</text>
+
+  <!-- Arrow 4 -->
+  <line x1="310" y1="409" x2="310" y2="437" stroke="#6c63ff" stroke-width="1.5"/>
+  <polygon points="304,435 310,447 316,435" fill="#6c63ff"/>
+
+  <!-- Step 5: Metabase -->
+  <rect x="175" y="447" width="270" height="45" rx="8" fill="#1a1a3e" stroke="#4fc3f7" stroke-width="1.5"/>
+  <text x="310" y="467" text-anchor="middle" fill="#4fc3f7" font-size="11" font-weight="bold">DASHBOARD</text>
+  <text x="310" y="483" text-anchor="middle" fill="#ffffff" font-size="11">Metabase (Docker)</text>
+
+  <!-- Stack info -->
+  <text x="22" y="460" fill="#888888" font-size="10">Stack:</text>
+  <text x="22" y="474" fill="#888888" font-size="10">GCS</text>
+  <text x="22" y="488" fill="#888888" font-size="10">BigQuery</text>
+  <text x="22" y="502" fill="#888888" font-size="10">Metabase</text>
+  <text x="22" y="516" fill="#888888" font-size="10">Docker</text>
+
+</svg>
